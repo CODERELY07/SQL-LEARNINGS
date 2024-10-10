@@ -1,0 +1,12 @@
+Table: Customers
+
+Show all customers Where the city is VA
+- SELECT * FROM customers WHERE city = 'VA'
+
+Show all customers Where the city is not in VA
+- SELECT * FROM customers WHERE city != 'va'
+- SELECT * FROM customers WHERE city <> 'va'
+
+Show all customers where birth date start from 1990-01-01
+- SELECT * FROM customer WHERE birth_date > '1990-01-01'
+

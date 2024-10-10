@@ -1,0 +1,14 @@
+TABLE: customers
+short of combining multiple condition of OR operator
+example:
+- SELECT * FROM customers WHERE state = 'VA' OR state = 'FL' OR 'GA'
+instead of this code we use IN operator
+- SELECT * FROM customer WHERE state IN ('VA', 'FL', 'GA')
+this will execute a same result
+
+we can use NOT operator
+- SELECT * FROM customer WHERE state NOT IN ('VA', 'FL', 'GA')
+
+table: products
+return the products in quantity in stock equal to 49,38,72
+-SELECT * FROM products WHERE quantity_in_stock IN(49, 38, 72)

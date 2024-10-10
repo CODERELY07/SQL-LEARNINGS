@@ -1,0 +1,17 @@
+
+show customers where birth_date is greater than 1990-01-01 or points > 1000 and the state is VA
+- SELECT * FROM customers WHERE birth_date > '1990-01-01' OR * (points > 1000 AND state = 'VA')
+
+note: The AND operator has higher precedence than OR so the and operator will execute first but the parenthesis
+can overwrite it, this means parenthesis is the highest precedence.
+
+show customers where birth date is not greater than 1990-01-01 OR points greater than 1000
+- SELECT * FROM customers WHERE NOT (birth_date > '1990-01-01 OR points > 1000
+note: Using NOT keyword affect all such as greater than is now less than or equal , less than
+is now greater than or equal and the OR will be AND
+
+We can put arithmetic in the after WHERE clause
+Table: order_items
+
+show the items for order #6 where the total price is greater than 30
+- SELECT * FROM order_items WHERE order_id = 6 AND unit_price * quantity > 30

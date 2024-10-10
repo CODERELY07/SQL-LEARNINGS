@@ -1,0 +1,20 @@
+TABLE: patients
+
+show all data from table
+- SELECT * FROM patients
+
+show first_name and last_name from the table
+- SELECT first_name,last_name FROM patients
+
+show first_name, last_name and gender from the table where the allergies is equal to Peanut
+- SELECT first_name, last_name, gender FROM patients WHERE allergies = 'Peanut'
+
+show first_name and create column that add 200+30 name it as bills
+- SELECT first_name, 200+30 AS bills FROM patients
+
+show first name and last name of patients who does not have allergies. (null)
+- SELECT first_name, last_name FROM patients WHERE allergies IS NULL
+
+show city of patients with no duplication
+- SELECT DISTINCT city FROM patients
+
