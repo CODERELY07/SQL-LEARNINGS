@@ -1,0 +1,30 @@
+The `LIKE` operator in SQL is used in a `WHERE` clause to search for a specified pattern 
+in a column. It is particularly useful for matching string values where you want to find 
+partial matches, using wildcards like `%` (any sequence of characters) and `_` (a single character). 
+You would use `LIKE` when you need flexible string matching, such as finding names that start with 
+a certain letter or include a specific substring.
+
+show all data of the customers that start with letter b
+- SELECT * FROM customers WHERE last_name Like 'b%'; 
+
+show all data of the customers that has letter b it doesn't matter if it is in beggining
+,end or in the middle 
+- SELECT * FROM customers WHERE last_name Like '%b%';
+
+show all data of the customers that end with letter b
+-  SELECT * FROM customers WHERE last_name Like '%b';
+
+show all data of the customers where last name start with letter b and ends with letter y and total
+of 6 characters
+- SELECT * FROM customers WHERE last_name LIKE 'b____y'; // 4 underscore
+
+note: % represnt any number of characters and _ represent single character
+
+get the customers whose addresssess contain trial or avenue
+- SELECT * FROM customers WHERE address LIKE '%trial%' OR addess LIKE'%avenue%';
+
+phone numbers end with 9
+- SELECT * FROM customers WHERE phone LIKE '%9';
+
+we can use NOT 
+- SELECT * FROM customers WHERE phone NOT LIKE '%9';
