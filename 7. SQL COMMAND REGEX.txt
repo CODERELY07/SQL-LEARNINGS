@@ -1,0 +1,52 @@
+USING REGEX OPERATORas a regular expression matching if you want to match any city that contains the 
+substring "field" anywhere in its name this is the querry:
+
+- SELECT * FROM customers WHERE city REGEX 'field';
+you can use LIKE operator for example:
+- SELECT * FROM customer WHERE city LIKE '%field%';
+The REGEXP operator uses regular expressions for more complex pattern matching, while LIKE
+ uses simple wildcard patterns (e.g., % for any sequence of characters) for basic substring matching.
+
+For REGEX we have ^ symbol represents the start of a string
+for example :
+Retrieves all cities that start with "New"
+- SELECT * FROM customers WHERE city REGEXP '^New';
+Retrieves all customers whose first names start with letter "A"
+- SELECT first_name FROM customers WHERE city REGEXP '^A';
+Retieves all customers whose cities is not uppercase letter
+- SELECT * FROM customers WHERE city REGEXP '^[^A-Z]';
+Explanation of ^[^A-Z]
+The first ^ indicates the start of the string.
+Inside the brackets [], the caret ^ negates the characters specified, meaning it matches any character that is not included in the brackets.
+For example:
+[abc] matches a single character that is either 'a', 'b', or 'c'.
+[a-z] matches any single lowercase letter from 'a' to 'z'.
+
+[^abc] matches any character that is not 'a', 'b', or 'c'. abc uppercase letter will include If you want to ensure
+that uppercase 'A', 'B', and 'C' are also excluded from the match, you can use the pattern 
+[^abcABC] in sql SELECT * FROM customers WHERE city REGEXP '^[^abcABC]
+
+[A-Za-z] matches any single uppercase or lowercase letter.
+Thus, in the example ^[^A-Z], the query retrieves cities where the first character is not an uppercase letter (i.e., not A-Z).
+
+$ this symbol represent the end of the string 
+for example:
+retrieve all cities from the customers that ends with field
+- SELECT * FROM customers WHERE city REGEXP 'field$';
+
+To retrieve data that contains specific substrings in the last_name field, you can use the REGEXP 
+operator with the pipe symbol (|), which acts as an OR operator in regular expressions.
+To retrieve customers whose last names contain either "field" or "mac", you would write the SQL query 
+like this:
+- SELECT * FROM customers WHERE last_name REGEXP 'field|mac';
+
+How about we combine our learnings 
+Lets try to retrieve all customer records where the last name starts with the substrings 'field', 'mac', or 'rose', you can use the following SQL query:
+- SELECT * FROM customers WHERE last_name REGEXP '^(field|mac|rose)';
+
+Lets retrieve all customers whose last names contains substring with 'g', 'i', or 'm' followed by the letter 'e'
+- SELECT * FROM customers WHERE last_name REGEXP '[gim]e';
+[gim]e: This pattern matches any substring in the last_name that contains a character 'g', 'i', or 'm' immediately followed by 'e'.
+
+retrieve all customers data where substring should contain any character from 'a' to 'z' anywhere in the last name, followed specifically by the letter 'e
+- SELECT * FROM customers WHERE last_name REGEXP '[a-z]e' 

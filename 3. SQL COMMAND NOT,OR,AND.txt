@@ -1,6 +1,6 @@
 
 show customers where birth_date is greater than 1990-01-01 or points > 1000 and the state is VA
-- SELECT * FROM customers WHERE birth_date > '1990-01-01' OR * (points > 1000 AND state = 'VA')
+- SELECT * FROM customers WHERE birth_date > '1990-01-01' OR (points > 1000 AND state = 'VA')
 
 note: The AND operator has higher precedence than OR so the and operator will execute first but the parenthesis
 can overwrite it, this means parenthesis is the highest precedence.

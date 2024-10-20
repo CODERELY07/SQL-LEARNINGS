@@ -1,5 +1,11 @@
 TABLE: patients
 
+USE sql_hospital
+The use keywork is to select the database
+
+DESC patients 
+Use DESC to describe the table
+
 show all data from table
 - SELECT * FROM patients
 
@@ -12,9 +18,14 @@ show first_name, last_name and gender from the table where the allergies is equa
 show first_name and create column that add 200+30 name it as bills
 - SELECT first_name, 200+30 AS bills FROM patients
 
+show first_name and last_name and create column for fullname 
+- SELECT first_name, last_name, CONCAT(first_name, ' ', last_name ) AS fullname FROM customers ;
+
 show first name and last name of patients who does not have allergies. (null)
 - SELECT first_name, last_name FROM patients WHERE allergies IS NULL
 
+show first name and last name of patients who have allergies
+- SELECT first_name, last_name FROM customers WHERE city IS NOT NULL;
 show city of patients with no duplication
 - SELECT DISTINCT city FROM patients
 
