@@ -1,0 +1,50 @@
+cre"The primary key of the table is defined by default to ensure uniqueness for each record."
+
+To sort the customers table by the first_name column in ascending order, use:
+- SELECT * FROM customers ORDER BY first_name;
+
+To sort by first_name in descending order, use:
+- SELECT * FROM customers ORDER BY first_name DESC;
+
+o sort by multiple columns, you can list them in the ORDER BY clause.
+ For instance, to sort by state and then by first_name, use:
+- SELECT * FROM customers ORDER BY state, first_name;
+
+To sort the results of the customers table by state in descending order and 
+then by first_name in ascending order, you can modify your SQL query as follows:
+- SELECT * FROM customers ORDER BY state DESC, first_name;
+
+
+Note:
+When sorting by multiple columns, the order of the columns in the ORDER BY clause affects the final result. 
+Sorting by state, first_name first organizes the results by state and then, within each state, sorts by 
+first_name. Conversely, sorting by first_name, state will first organize the results by first_name and then
+group the records with the same first_name by state. Always choose the order based on your specific 
+sorting needs.
+
+
+Problem Scenario:
+Context: You are working for an online retail company that manages customer orders. 
+The company has a database with a table named order_items that stores details about each item in an order.
+
+Table Structure: The order_items table has the following columns:
+
+order_id (integer): The ID of the order.
+item_id (integer): The ID of the item.
+quantity (integer): The number of units of the item ordered.
+unit_price (decimal): The price per unit of the item.
+Task: You need to analyze the order with order_id = 2.
+ Your goal is to find out which items in this order generated the highest total cost.
+
+Requirements:
+
+Calculate the total cost for each item by multiplying quantity by unit_price.
+Retrieve all details for the items in this order.
+Sort the results in descending order based on the total cost.
+
+Solution:
+
+SELECT *, quantity * unit_price AS total 
+FROM order_items 
+WHERE order_id = 2 
+ORDER BY total DESC;

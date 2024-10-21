@@ -1,0 +1,39 @@
+The LIMIT clause in SQL is used to specify the maximum number of records to return from a query. 
+It's particularly useful when you want to control the amount of data retrieved, especially in cases
+where the dataset might be large. Here are some common uses for LIMIT:
+
+When you only need a specific number of records, 
+LIMIT helps avoid retrieving unnecessary data. For example, 
+
+if you're only interested in the top 10 highest sales, you could use:
+- SELECT * FROM sales ORDER BY total DESC LIMIT 10;
+
+LIMIT is often combined with OFFSET to implement pagination in applications. 
+This allows users to view data in chunks. For example, to get records 11 to 20:
+- SELECT * FROM customers ORDER BY customer_id LIMIT 10 OFFSET 10;
+
+ANOTHER EXAMPLE WITH EXPLANTION
+SELECT * FROM customers ORDER BY customer_id LIMIT 0, 5;
+
+Explanation:
+SELECT *: This part of the query indicates that you want to select all columns from the customers table.
+
+FROM customers: This specifies the table from which to retrieve the data, which is the customers table.
+
+ORDER BY customer_id: This clause sorts the results based on the customer_id column. By default, 
+sorting is done in ascending order (from the smallest to the largest value).
+
+LIMIT 0, 5: The LIMIT clause restricts the number of records returned by the query. In this case:
+
+0 indicates the starting point (the first record).
+5 specifies the maximum number of records to return.
+So, this will return the first 5 records from the sorted result.
+Summary:
+The entire query retrieves the first 5 customers from the customers table, ordered by their customer_id. 
+If there are fewer than 5 records in the table, it will return all available records.
+
+This kind of query is useful for implementing pagination or simply when you want to limit the amount of
+ data returned for performance reasons.
+
+Query the loyal customers
+SELECT * FROM customers ORDER BY points DESC LIMIT 3;
